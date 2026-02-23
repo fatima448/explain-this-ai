@@ -11,14 +11,14 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <h3 className="text-[40px] md:text-6xl font-bold  tracking-tight ">
+      <div className="container ">
+        <h3 className="text-[40px] md:text-6xl font-bold  tracking-tight  ">
           Complexity,{" "}
-          <span className="bg-gradient-to-bl from-transparent via-cyan-500 to-blue-800 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-bl from-transparent via-cyan-500 to-blue-800 bg-clip-text text-transparent kenburns-top-alternate">
             Simplified.
           </span>
         </h3>
-        <p className="mt-4 text-[18px] text-[hsla(0, 2%, 66%, 1.00)]  text-center">
+        <p className="mt-12 text-[18px] text-[hsla(0, 2%, 66%, 1.00)]  text-center">
           Got a block of text that makes no sense?
           <br /> Drop it here for a clear, human-friendly explanation.
         </p>
@@ -32,14 +32,14 @@ const App = () => {
           ></textarea>
           {prompt !== "" ? (
             <>
-              <i className="sendIcon text-[20px] w-[30px] h-[30px] flex items-center justify-center bg-[#223a59] rounded-[50%]  transition-all duration-300 hover:opacity-[.8]">
+              <i className="sendIcon text-[20px] w-[30px] h-[30px] flex items-center justify-center  rounded-[50%]  transition-all duration-300 hover:opacity-[.8]">
                 <MdOutlineArrowUpward />
               </i>
             </>
           ) : null}
         </div>
 
-        <p className="text-[20px] text-[hsla(0, 2%, 66%, 1.00)]  font-[500] mt-[5vh]">
+        <p className="text-[20px] text-[hsla(0, 2%, 66%, 1.00)]  font-[500] mt-[9vh]">
           Here is the simplified version:
         </p>
 
