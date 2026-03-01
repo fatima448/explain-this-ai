@@ -4,10 +4,24 @@ import Navbar from "./components/Navbar";
 import { MdOutlineArrowUpward } from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa6";
+import api from "./api";
 
 const App = () => {
   const [prompt, setPrompt] = useState("");
   const [copied, setCopied] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState("");
+
+
+  
+  const handleSubmit = async () => {
+    try {
+      const response = await api.post("/explain", { text: prompt });
+      setSimplifiedText(response.data.simplified_text);
+    } catch (error) {
+      console.error("Error simplifying text:", error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -32,7 +46,7 @@ const App = () => {
           ></textarea>
           {prompt !== "" ? (
             <>
-              <i className="sendIcon text-[20px] w-[30px] h-[30px] flex items-center justify-center  rounded-[50%]  transition-all duration-300 hover:opacity-[.8]">
+              <i  onClick={handleSubmit} className="sendIcon text-[20px] w-[30px] h-[30px] flex items-center justify-center  rounded-[50%]  transition-all duration-300 hover:opacity-[.8]">
                 <MdOutlineArrowUpward />
               </i>
             </>
@@ -44,6 +58,7 @@ const App = () => {
         </p>
 
         <div className="preview ">
+          
           <div className="header w-full h-[70px]">
             <h3 className="text-[18px] text-[hsla(0, 2%, 66%, 1.00)] ">
               Simplified Output
@@ -54,6 +69,9 @@ const App = () => {
                  
               </div>
             </div>
+          </div>
+          <div className="content">
+            {simplifiedText}
           </div>
         </div>
       </div>
